@@ -10,6 +10,12 @@ const Footer = () => {
             OpenDataPhilly
           </a>
         </p>
+        <p>
+          <a href="https://github.com/dbreslin424/phillycovidcurve">
+            Source Code
+          </a>
+          &nbsp;| Github
+        </p>
       </div>
     </footer>
   );
