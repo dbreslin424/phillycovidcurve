@@ -1,19 +1,14 @@
 import { get } from "./http";
 
-export interface DailyCaseRow {
+export interface DailyCaseEntry {
   result_date: string;
   count: number;
   delta: number;
   formattedDate: string;
   test_result: string;
-  [field: string]: any;
 }
 
-interface DailyCaseResponse {
-  rows: DailyCaseRow[];
-}
-
-const sortByDate = (cases: DailyCaseRow[]): DailyCaseRow[] => {
+const sortByDate = (cases: DailyCaseEntry[]): DailyCaseEntry[] => {
   return cases.sort((a, b) => {
     const aDate = new Date(a.result_date);
     const bDate = new Date(b.result_date);
@@ -22,7 +17,7 @@ const sortByDate = (cases: DailyCaseRow[]): DailyCaseRow[] => {
   });
 };
 
-const parseCases = (cases: DailyCaseRow[]): DailyCaseRow[] =>
+const parseCases = (cases: DailyCaseEntry[]): DailyCaseEntry[] =>
   cases.map((day, index, dayArray) => {
     const date = new Date(day.result_date);
 
@@ -33,7 +28,7 @@ const parseCases = (cases: DailyCaseRow[]): DailyCaseRow[] =>
     };
   });
 
-export const getDailyCases = async (): Promise<DailyCaseRow[]> => {
+export const getDailyCases = async (): Promise<DailyCaseEntry[]> => {
   let response;
   try {
     response = await get(

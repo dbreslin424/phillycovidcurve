@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getDailyCases, DailyCaseRow } from "../services/casesByDate";
+import { getDailyCases, DailyCaseEntry } from "../services/casesByDate";
 import {
   LineChart,
   XAxis,
@@ -11,7 +11,7 @@ import {
 } from "recharts";
 
 const DailyCases: React.FC = () => {
-  const [caseData, setCaseData] = useState<DailyCaseRow[] | undefined>();
+  const [caseData, setCaseData] = useState<DailyCaseEntry[] | undefined>();
   const [showDelta, setShowDelta] = useState(false);
 
   useEffect(() => {
