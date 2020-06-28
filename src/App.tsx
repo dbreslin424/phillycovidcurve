@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./styles/App.scss";
+import DailyCases from "./charts/DailyCases";
+import CasesByAge from "./charts/CasesByAge";
+import Header from "./views/Header";
+import Footer from "./views/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App pcc-grid">
+      <Header />
+      <article className="pcc-main-container">
+        <DailyCases />
+        <CasesByAge />
+      </article>
+      <Footer />
     </div>
   );
 }
